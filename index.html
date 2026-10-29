@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<!-- The lang attribute tells browsers and screen readers the page is in English -->
+<html lang="en">
+<head>
+    <!-- Use a standard text encoding so special characters display correctly -->
+    <meta charset="UTF-8">
+
+    <!-- Makes the page fit phone screens -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- The title shows on the browser tab -->
+    <title>Henrique Furlan</title>
+
+    <!-- Connect the external CSS file -->
+    <link rel="stylesheet" href="styles.css">
+
+    <!-- Connect the JavaScript file. "defer" makes it run after the page is loaded -->
+    <script src="script.js" defer></script>
+</head>
+<body>
+
+    <!-- HEADER: the top of the page. It holds the only h1 on the page -->
+    <header>
+        <h1>Henrique Furlan</h1>
+        <!-- &middot; is the small dot symbol -->
+        <p class="subtitle">GK #1 &middot; New College of Florida (NAIA) &middot; Sarasota, FL</p>
+
+        <!-- The dark mode button. The JS finds it using its id "theme-btn" -->
+        <button id="theme-btn" type="button">Dark mode</button>
+    </header>
+
+    <!-- NAV is the navigation links. Each hred matches the id of a section below -->
+    <nav>
+        <ul>
+            <li><a href="#about">About</a></li>
+            <li><a href="#season">Season</a></li>
+            <li><a href="#totals">Totals</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
+    </nav>
+
+    <!-- MAIN is the main content of the page. Holds all the sections -->
+    <main>
+
+        <!-- SECTION 1: About. The id lets the nav link jump here -->
+        <section id="about">
+            <h2>About</h2>
+
+            <!-- The image -->
+            <img src="henrique.jpg" alt="Henrique Furlan in his #1 jersey">
+
+            <p>I am the starting goalkeeper for New College and an Economics/Computer Science student. This page tracks my 2026 season.</p>
+        </section>
+
+        <!-- SECTION 2: Season. The JS builds the game list inside this section -->
+        <section id="season">
+            <h2>2026 Season</h2>
+
+            <!-- The search box. The label's "for" matches the inputs id, -->
+            <!-- when a button is clicked. "active" marks the selected button -->
+            <label for="search">Search by opponent</label>
+            <input type="text" id="search">
+
+            <div class="filters">
+                <button type="button" class="filter-btn active" data-result="all">All</button>
+                <button type="button" class="filter-btn" data-result="Win">Wins</button>
+                <button type="button" class="filter-btn" data-result="Draw">Draws</button>
+                <button type="button" class="filter-btn" data-result="Loss">Losses</button>
+                
+            </div>
+
+            <!-- Empty on purpose: the JS writes "Showing 3 of 8" -->
+            <p id="count"></p>
+
+            <!-- Empty on purpose: the JS creates the list items (li) here -->
+            <ul id="game-list"></ul>
+        </section>
+
+        <!-- SECTION  3: Totals. a table of the season stats -->
+        <section id="totals">
+            <h2>Totals</h2>
+            <table>
+                <!-- tbody holds the data rows. Each row is: a name (th) and a value (td) -->
+                <!-- scope="row" tells screen readers the th is the heading for that row -->
+                <thead>
+                    <tr>
+                        <th>Stat</th>
+                        <th>Value</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr><th scope="row">Games played (GP)</th><td>9</td></tr>
+                    <tr><th scope="row">Wins-Losses-Draws (W-L-D)</th><td>3-1-5</td></tr>
+                    <tr><th scope="row">Minutes</th><td>773</td></tr>
+                    <tr><th scope="row">Saves</th><td>34</td></tr>
+                    <tr><th scope="row">Goals conceded (GC)</th><td>14</td></tr>
+                    <tr><th scope="row">Clean sheets (CS)</th><td>1</td></tr>
+                    <tr><th scope="row">GC per 90 minutes</th><td>1.6</td></tr>
+                    <tr><th scope="row">Minutes per GC</th><td>55.2</td></tr>
+                    <tr><th scope="row">Clean sheet % (CS%)</th><td>11.1</td></tr>
+                    <tr><th scope="row">Saves per game (S/GP)</th><td>3.8</td></tr>
+                    <tr><th scope="row">Saves per GC (S/GC)</th><td>2.4</td></tr>
+                </tbody>
+            </table>
+        </section>
+
+        <!-- SECTION 4: Contact. The JS checks it when send is clicked -->
+        <section id="contact">
+            <h2>Contact</h2>
+            <form id="contact-form">
+                <!-- Every form control has a label connected by for and id -->
+                <label for="name">Name</label>
+                <input type="text" id="name">
+
+                <label for="message">Message (at least 10 characters)</label>
+                <textarea id="message" rows="4"></textarea>
+
+                <!-- type="submit" makes this button send the form -->
+                <button type="submit">Send</button>
+            </form>
+
+            <!-- Empty on purpose: the JS writes the error message here -->
+            <p id="form-error"></p>
+
+            <!-- Empty on purpose: the JS writes the summary here -->
+            <p id="form-summary"></p>
+        </section>
+    </main>
+
+    <!-- FOOTER: the bottom of the page. &copy; is the copyright symbol -->
+    <footer>
+        <p>&copy; 2026 Henrique Furlan</p>
+    </footer>
+
+</body>
+</html>

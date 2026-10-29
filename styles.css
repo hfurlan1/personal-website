@@ -1,0 +1,230 @@
+/* ---------- Colors and font (custom properties) ---------- */
+:root {
+  --bg: #f6f3ec;
+  --card: #ffffff;
+  --text: #14202b;
+  --muted: #4a5560;
+  --accent: #0b5d4b;
+  --accent-bg: #e4efe9;
+  --border: #14202b;
+  --line: #d9d4c7;
+  --error: #b00020;
+  --font: Arial, Helvetica, sans-serif;
+}
+
+/* Dark mode: the JavaScript adds the class "dark-mode" to body.
+ It only replaces the colors, so everything else stays the same. */
+body.dark-mode {
+  --bg: #121a22;
+  --card: #1c2732;
+  --text: #f1f1ec;
+  --muted: #b8c2cc;
+  --accent: #6fd3b3;
+  --accent-bg: #24413a;
+  --border: #f1f1ec;
+  --line: #3b4a58;
+  --error: #ff9aa8;
+}
+
+/* ---------- Basics ---------- */
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: var(--font);
+  background: var(--bg);
+  color: var(--text);
+  line-height: 1.5;
+}
+
+/* The four landmarks share the same centered column */
+header, nav, main, footer {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+h1 {
+  margin: 0;
+  font-size: 48px;
+}
+
+.subtitle {
+  margin: 8px 0 15px;
+  font-size: 18px;
+}
+
+h2 {
+  margin: 0 0 10px;
+  font-size: 14px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: var(--accent);
+}
+
+section {
+  margin-bottom: 40px;
+}
+
+/* ---------- Navigation (flexbox) ---------- */
+nav {
+  border-top: 2px solid var(--border);
+  border-bottom: 2px solid var(--border);
+}
+
+nav ul {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+nav a {
+  display: block;
+  padding: 10px 16px;
+  color: var(--text);
+  text-decoration: none;
+}
+
+nav a:hover {
+  background: var(--accent-bg);
+}
+
+/* ---------- Buttons ---------- */
+button {
+  padding: 10px 16px;
+  font-family: var(--font);
+  font-size: 14px;
+  background: var(--accent);
+  color: var(--card);
+  border: 2px solid var(--accent);
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+/* Filter buttons: outlined, and filled when active */
+.filters {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-bottom: 15px;
+}
+
+.filter-btn {
+  background: var(--card);
+  color: var(--text);
+}
+
+.filter-btn.active {
+  background: var(--accent);
+  color: var(--card);
+}
+
+/* ---------- Image ---------- */
+img {
+  display: block;
+  width: 100%;
+  max-width: 300px;
+  height: auto;
+  margin-bottom: 15px;
+  border: 3px solid var(--accent);
+  border-radius: 8px;
+}
+
+/* ---------- Form controls ---------- */
+label {
+  font-weight: bold;
+}
+
+input, textarea {
+  display: block;
+  width: 100%;
+  max-width: 400px;
+  margin: 5px 0 15px;
+  padding: 10px;
+  font-family: var(--font);
+  font-size: 16px;
+  background: var(--card);
+  color: var(--text);
+  border: 2px solid var(--border);
+  border-radius: 4px;
+}
+
+#form-error {
+  color: var(--error);
+  font-weight: bold;
+}
+
+#form-summary {
+  padding: 12px;
+  background: var(--accent-bg);
+  border-left: 6px solid var(--accent);
+}
+
+/* Hide the summary box while it has no text */
+#form-summary:empty {
+  display: none;
+}
+
+/* ---------- Game list ---------- */
+#game-list {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+#game-list li {
+  margin-bottom: 8px;
+  padding: 12px;
+  background: var(--card);
+  border: 1px solid var(--line);
+  border-left: 6px solid var(--accent);
+}
+
+/* ---------- Table ---------- */
+table {
+  width: 100%;
+  border-collapse: collapse;
+  background: var(--card);
+}
+
+th, td {
+  padding: 12px;
+  text-align: left;
+  border-bottom: 1px solid var(--line);
+}
+
+thead th {
+  font-size: 12px;
+  text-transform: uppercase;
+  color: var(--muted);
+  border-bottom: 2px solid var(--border);
+}
+
+/* ---------- Footer ---------- */
+footer {
+  border-top: 2px solid var(--border);
+  color: var(--muted);
+  font-size: 14px;
+}
+
+/* ---------- Small screens (phones, 400px wide) ---------- */
+@media (max-width: 600px) {
+  h1 {
+      font-size: 32px;
+  }
+
+  header, nav, main, footer {
+      padding: 15px;
+  }
+
+  /* Stack the nav links in one column */
+  nav ul {
+      flex-direction: column;
+      gap: 0;
+  }
+}
